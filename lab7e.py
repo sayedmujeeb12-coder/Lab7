@@ -1,15 +1,30 @@
 # Add comments before you do anything else.
 
 #!/usr/bin/env python3
-# Author:
+# Author: syed mujeeb
 # Date:
 # Purpose: Create Series.
 # Usage: ./lab10e.py
 
-# TO DO 1: Import pandas module.
+import pandas as pd
 
-# TO DO 2: Create a series according to instructions given in readme.md file.
+print("=== lab7e.py ===\n")
 
-# TO DO 3: Perform the operations on this series given in readme.md file.
+values = ["<50", "50-59", "60-69", "70-79", "80-89", "90-100"]
+indices = ["F", "D", "C", "B", "A", "A+"]
 
-# TO DO 4: Run the script.
+grade_series = pd.Series(values, index=indices)
+print("Grade series:\n", grade_series)
+
+# Print the values of indices "C" and "A+"
+print("\nValue at index 'C':", grade_series["C"])
+print("Value at index 'A+':", grade_series["A+"])
+
+# Print value "60-69" directly without printing its index name
+# We can get it by position (index 2) or by label "C"
+value_60_69 = grade_series.iloc[2]   # or grade_series['C']
+print("\nValue (60-69) accessed directly (no index label shown):", value_60_69)
+
+# Show the '*' operation on this list/series.
+# For strings, Series * 2 repeats each string twice (element-wise)
+print("\nDemonstrating the '*' operation (series * 2):\n", grade_series * 2)
